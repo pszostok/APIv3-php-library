@@ -4107,6 +4107,7 @@ class ContactsApi
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
             } else {
+                $responseBody->rewind();
                 $content = $responseBody->getContents();
                 if ($returnType !== 'string') {
                     $content = json_decode($content);
